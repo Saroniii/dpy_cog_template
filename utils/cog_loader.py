@@ -6,7 +6,7 @@ class CogLoader:
 
     def cog_load(self, path: str):
         """
-        Cogを読み込みます。
+        Load cogs.
         """
         cur = pathlib.Path('.')
 
