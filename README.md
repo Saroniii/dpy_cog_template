@@ -1,15 +1,15 @@
 ## dpy_cog_template
 
-discord.pyでCog(commandsフレームワーク)を用いて開発するときのテンプレートです。
+A template for developing in discord.py using the Cog (commands framework).
 
-## 起動方法について
+## How to use
 
-・開発環境内の環境変数に`TOKEN`という名前で起動させたいBotクライアントのトークンを入れてから起動してください。
+・Put the bot client's token in the environment variable named `TOKEN` and start it.
 
-## 動作確認について
+## How to check the operation
 
-・`!goodmorning`と打って反応があれば正常に動作しています。
+・If you type `!goodmorning` and there is a response, it is working properly.
 
-## Prefix(コマンド接頭辞)の変更について
+## How to make sure the Bot works
 
-・`main.py`内の8行目にあるcommand_prefix変数を書き換えることで変更できます。
+・You can change this by rewriting the `command_prefix` variable on line 8 in `main.py`.
