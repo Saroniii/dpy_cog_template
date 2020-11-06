@@ -10,7 +10,7 @@ class Cog(commands.Cog):
 
     @commands.command()
     async def goodmorning(self, ctx :commands.Context):
-        return await ctx.send('おはよ～')
+        return await ctx.send('Good Morning')
 
 def setup(bot):
     bot.add_cog(Cog(bot))
