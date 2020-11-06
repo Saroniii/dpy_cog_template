@@ -6,11 +6,11 @@ import pathlib
 from utils import cog_loader as loader
 
 TOKEN = os.environ['TOKEN']
-command_prefix = ['!'] #コマンド接頭辞
+command_prefix = ['!'] #Prefix
 
 class MyBot(commands.Bot):
     def __init__(self, *args, **kwargs):
-        self.ready_check = False  # 重複してon_readyが呼び出されるのを回避するための変数
+        self.ready_check = False  # Variable to prevent duplicate on_ready events from being triggered
         super().__init__(*args, **kwargs)
 
     async def on_ready(self):
@@ -28,7 +28,7 @@ class MyBot(commands.Bot):
             self.ready_check = True
         
         else:
-            print('既に起動処理は完了しています！')
+            print('The start up process is already complete!')
 
 
 intent: discord.Intents = discord.Intents.default()
