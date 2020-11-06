@@ -3,6 +3,7 @@ import discord
 from discord.ext import commands
 import os
 import pathlib
+from utils import cog_loader as loader
 
 TOKEN = os.environ['TOKEN']
 command_prefix = ['!'] #コマンド接頭辞
