@@ -4,7 +4,7 @@ from discord.ext import commands
 
 class CogLoader:
 
-    def cog_load(self, path: str):
+    def cog_load(self, bot :commands.Bot, path: str):
         """
         Load cogs.
         """
@@ -14,7 +14,7 @@ class CogLoader:
 
             try:
                 print(f'cogs.{p.stem}', end="　")
-                self.load_extension(f'cogs.{p.stem}')
+                bot.load_extension(f'cogs.{p.stem}')
                 print(f'success')
 
             except commands.errors.NoEntryPointError:
