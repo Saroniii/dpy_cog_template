@@ -32,6 +32,6 @@ class MyBot(commands.Bot):
 
 
 intent: discord.Intents = discord.Intents.default()
-bot = MyBot(command_prefix=command_prefix, intent=intent)
+bot = MyBot(command_prefix=command_prefix, intents=intent)
 
 bot.run(TOKEN)
