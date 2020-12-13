@@ -3,7 +3,6 @@ import discord
 from discord.ext import commands
 import os
 import pathlib
-from utils import cog_loader as loader
 
 TOKEN = os.environ['TOKEN']
 command_prefix = ['!'] #Prefix
@@ -22,9 +21,18 @@ class MyBot(commands.Bot):
             print(self.user.id)
             print(f'import')
             folder_name = 'cogs'
-            loader().cog_load(self, f'{folder_name}/*.py')
+            cur = pathlib.Path('.')
 
-            print('------')
+            for p in cur.glob(f"{folder_name}/*.py"):
+
+                try:
+                    print(f'cogs.{p.stem}', end="　")
+                    bot.load_extension(f'cogs.{p.stem}')
+                    print(f'success')
+
+                except commands.errors.NoEntryPointError:
+                    print(f'module.{p.stem}')
+
             self.ready_check = True
         
         else:
