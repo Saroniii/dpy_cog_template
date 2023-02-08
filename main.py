@@ -5,17 +5,16 @@ import os
 import pathlib
 
 TOKEN = os.environ['TOKEN']
-command_prefix = ['!'] #Prefix
+command_prefix = ['!']  # Prefix
+
 
 class MyBot(commands.Bot):
     def __init__(self, *args, **kwargs):
         self.ready_check = False  # Variable to prevent duplicate on_ready events from being triggered
         super().__init__(*args, **kwargs)
 
-    async def on_ready(self):
-
-        if self.ready_check == False:
-
+    async def setup_hook(self):
+        if not self.ready_check:
             print('Logged in as')
             print(self.user.name)
             print(self.user.id)
@@ -27,14 +26,14 @@ class MyBot(commands.Bot):
 
                 try:
                     print(f'cogs.{p.stem}', end="　")
-                    bot.load_extension(f'cogs.{p.stem}')
+                    await bot.load_extension(f'cogs.{p.stem}')
                     print(f'success')
 
                 except commands.errors.NoEntryPointError:
                     print(f'module.{p.stem}')
 
             self.ready_check = True
-        
+
         else:
             print('The start up process is already complete!')
 

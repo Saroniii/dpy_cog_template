@@ -1,7 +1,4 @@
-import discord
 from discord.ext import commands
-import traceback
-import re
 
 
 class Cog(commands.Cog):
@@ -9,8 +6,9 @@ class Cog(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def goodmorning(self, ctx :commands.Context):
+    async def goodmorning(self, ctx: commands.Context):
         return await ctx.send('Good Morning')
 
-def setup(bot):
-    bot.add_cog(Cog(bot))
+
+async def setup(bot):
+    await bot.add_cog(Cog(bot))
